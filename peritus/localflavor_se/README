@@ -1,0 +1,8 @@
+There are still no django.contrib.localflavor.se
+
+This is the code from ticket 9289:
+http://code.djangoproject.com/ticket/9289
+
+I need it in my projects right now and cannot wait for the inclusion in Django.
+
+Once the patch is merged to Django it will be removed from here.
