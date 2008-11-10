@@ -3,6 +3,9 @@ from django.http import HttpResponseServerError
 
 # This snippet was stolen from
 # http://www.djangosnippets.org/snippets/650/
+# Add this line to MIDDLEWARE_CLASSES:
+# 'peritus.middleware.AJAXSimpleExceptionResponse',
+
 class AJAXSimpleExceptionResponse:
     def process_exception(self, request, exception):
         if settings.DEBUG and request.is_ajax():
