@@ -1,14 +1,4 @@
 *.pyc
-settings.py
 .AppleDouble
 :2e*
 .DS_Store
-media/c/*.js
-media/c/*.css
-media/images/products
-media/images/categories
-unifaun_import
-unifaun_export
-.DS_Store
-static
-foo.db
