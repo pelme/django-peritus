@@ -11,7 +11,7 @@ class AsUlFix(object):
         class MyForm(AsUlFix, forms.Form):
             ...
         """
-        return self._html_output(u'<li>%(errors)s%(label)s %(field)s<p>%(help_text)s</p></li>', u'<li>%s</li>', '</li>', u' %s', False)
+        return self._html_output(u'<li>%(errors)s%(label)s %(field)s%(help_text)s</li>', u'<li>%s</li>', '</li>', u'<p class="helptext">%s</p', False)
 
 from django import forms
 
