@@ -4,7 +4,14 @@
 from django.db import models
 from django import forms
 from django.utils import simplejson as json
- 
+
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ["^peritus\.fields\.JSONField"])
+except ImportError:
+    pass
+
+
 class JSONWidget(forms.Textarea):
     def render(self, name, value, attrs=None):
         if not isinstance(value, basestring):
