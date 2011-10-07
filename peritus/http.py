@@ -7,11 +7,10 @@ from django.db.models.query import QuerySet
 # This snippet was stolen from
 # http://www.djangosnippets.org/snippets/154/
 class HttpJSONResponse(HttpResponse):
-    def __init__(self, object):
+    def __init__(self, object, **dump_kwargs):
         if isinstance(object, QuerySet):
             content = serialize('json', object)
         else:
-            content = simplejson.dumps(object)
+            content = simplejson.dumps(object, **dump_kwargs)
 
         super(HttpJSONResponse, self).__init__(content, mimetype='application/json')
-
