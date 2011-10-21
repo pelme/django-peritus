@@ -14,3 +14,14 @@ class HttpJSONResponse(HttpResponse):
             content = simplejson.dumps(object, **dump_kwargs)
 
         super(HttpJSONResponse, self).__init__(content, mimetype='application/json')
+
+    @property
+    def data(self):
+        """
+        Returns the returned data, as a Python object. This is not the original
+        object, it is the JSON encoded/decoded version.
+
+        This method is mostly useful for testing.
+        """
+
+        return simplejson.loads(self.content)
