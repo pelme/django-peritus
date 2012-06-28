@@ -1,5 +1,6 @@
+import json
+
 from django.http import HttpResponse
-from django.utils import simplejson
 from django.core.serializers import serialize
 from django.db.models.query import QuerySet
 
@@ -11,7 +12,7 @@ class HttpJSONResponse(HttpResponse):
         if isinstance(object, QuerySet):
             content = serialize('json', object)
         else:
-            content = simplejson.dumps(object, **dump_kwargs)
+            content = json.dumps(object, **dump_kwargs)
 
         super(HttpJSONResponse, self).__init__(content, mimetype='application/json')
 
@@ -24,4 +25,4 @@ class HttpJSONResponse(HttpResponse):
         This method is mostly useful for testing.
         """
 
-        return simplejson.loads(self.content)
+        return json.loads(self.content)
